@@ -40,6 +40,7 @@ public class WebSecurityConfig {
             "/*.js.map",
             "/fonts**", "/favicon.ico", "/resources/**", "/error"};
 
+    @Bean
     protected SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws  Exception{
 
         httpSecurity.authenticationProvider(authenticationProvider());
@@ -61,7 +62,7 @@ public class WebSecurityConfig {
     }
 
     @Bean
-    private AuthenticationProvider authenticationProvider() {
+    public  AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         authenticationProvider.setPasswordEncoder(passwordEncoder());
         authenticationProvider.setUserDetailsService(customUserDetailsService);
@@ -70,7 +71,7 @@ public class WebSecurityConfig {
 
 
     @Bean
-    private PasswordEncoder passwordEncoder() {
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 

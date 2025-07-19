@@ -28,6 +28,8 @@ public class RecruiterProfile {
     @MapsId
     private Users userId;
 
+    public RecruiterProfile() {
+    }
 
     public RecruiterProfile(Users users) {
         this.userId = users;
