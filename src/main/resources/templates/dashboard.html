@@ -65,12 +65,21 @@
                 >
             </li>
             <li class="nav-item ">
-                <a sec:authorize="hasAuthority('Recruiter')" class="nav-link" th:href="@{c}"
+                <a sec:authorize="hasAuthority('Recruiter')" class="nav-link" th:href="@{/recruiter-profile/}"
                 > <i class="fa-solid fa-pencil"></i>Edit Account</a
                 >
             </li>
 
         </ul>
+
+        <img
+                class="rounded-circle me-3"
+                height="50px"
+                width="50x"
+                th:if="${user.photosImagePath!=null}"
+                th:src="@{${user?.photosImagePath}}"
+        />
+
         <label th:if="${user.firstName != null && user.lastName != null}"
                th:text="${user.firstName+' '+user.lastName}"
                class="nav-item nav-link px-2 me-3">
